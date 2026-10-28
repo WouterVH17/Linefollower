@@ -7,17 +7,17 @@ lege repository die je als template kan gebruiken om een eigen repository te sta
   
 ## specifications
 
-microcontroller:
+microcontroller: ESP32-S3
 
-motors: 
+motors:JGA16-050 
 
-h-bridge:
+h-bridge:DVR8833
 
-sensors:
+sensors:Polopu QTR-8A
 
-batteries:
+batteries: 7.4V, 1000mAh, 5C LiPo-batterij
 
-wireless communication:
+wireless communication: wifi
 
 distance sensor - motors:
 
