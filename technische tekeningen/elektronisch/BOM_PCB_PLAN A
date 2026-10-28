@@ -1,0 +1,97 @@
+# BILL OF MATERIALS (BOM)
+## LineFollower_PCB_V1 – Lijnvolgende robot
+
+**Project:** Zelfontworpen lijnvolgende robot  
+**Versie:** 1.0  
+**PCB:** 4 lagen  
+**Ontwerpsoftware:** KiCad
+
+### 1. Elektronische modules
+
+| Nr. | Component | Type / waarde | Aantal |
+|---|---|---|---|
+| 1 | Microcontroller | ESP32-C2 | 1 |
+| 2 | Multiplexer | CD74HC4067 / HW-178 | 1 |
+| 3 | Motordriver | DRV8833 | 1 |
+| 4 | Buckconverter | MP1584 – 6 V | 1 |
+| 5 | Spanningsregelaar | 3,3 V | 1 |
+
+### 2. Infraroodsensoren
+
+| Nr. | Component | Type / waarde | Aantal |
+|---|---|---|---|
+| 6 | IR-zendled | Infrarood LED-zender | 11 |
+| 7 | Fototransistor | Infraroodontvanger | 11 |
+| 8 | Weerstand IR-led | 330 Ω | 11 |
+| 9 | Weerstand fototransistor | 10 kΩ | 11 |
+
+### 3. Statusleds en bediening
+
+| Nr. | Component | Type / waarde | Aantal |
+|---|---|---|---|
+| 10 | Groene led | 5 mm | 1 |
+| 11 | Oranje led | 5 mm | 1 |
+| 12 | Ledweerstand | 330 Ω | 2 |
+| 13 | Drukknop | SW1 / SW2 | 2 |
+| 14 | Weerstand drukknop | 10 kΩ | Te controleren |
+
+### 4. Condensatoren
+
+| Nr. | Component | Waarde | Aantal |
+|---|---|---|---|
+| 15 | Elektrolytische condensator | 470 µF | 1 |
+| 16 | Elektrolytische condensator | 100 µF | 4 |
+| 17 | Condensator | 10 µF | 1 |
+
+### 5. Motoren en voeding
+
+| Nr. | Component | Type / waarde | Aantal |
+|---|---|---|---|
+| 18 | DC-motor | JGA16-050 | 2 |
+| 19 | Batterij | LiPo 7,4 V | 1 |
+
+### 6. Connectoren en aansluitingen
+
+| Nr. | Component | Specificatie | Aantal |
+|---|---|---|---|
+| 20 | Motorconnector | 2-polig | 2 |
+| 21 | Batterijconnector | 2-polig | 1 |
+| 22 | Pinheaders | ESP32-C2 | 1 set |
+| 23 | Pinheaders | Multiplexer | 1 set |
+| 24 | Pinheaders | Motordriver | 1 set |
+
+### 7. Printplaat
+
+| Nr. | Component | Specificatie | Aantal |
+|---|---|---|---|
+| 25 | PCB | LineFollower_PCB_V1 – 4 lagen | 1 |
+
+---
+
+### Samenvatting
+
+| Categorie | Aantal |
+|---|---:|
+| Elektronische modules | 5 |
+| IR-zendleds | 11 |
+| Fototransistoren | 11 |
+| Weerstanden (excl. drukknoppen) | 24 |
+| Statusleds | 2 |
+| Drukknoppen | 2 |
+| Condensatoren | 6 |
+| DC-motoren | 2 |
+| Batterij | 1 |
+| Motor- en batterijconnectoren | 3 |
+| Pinheaders | 3 sets |
+| Printplaat | 1 |
+
+### Technische opmerkingen
+
+- De robot gebruikt 11 infraroodsensoren voor lijndetectie.
+- De CD74HC4067-multiplexer verwerkt de sensorsignalen en de drukknoppen.
+- De DRV8833 stuurt twee JGA16-050-motoren aan.
+- De MP1584 levert de ingestelde motorvoeding van 6 V.
+- De elektronica gebruikt een 3,3V-voeding.
+- De weerstanden van de drukknoppen moeten nog gecontroleerd worden. Mogelijk worden interne pull-ups gebruikt.
+
+**Status:** BOM versie 1.0 volgens de aangepaste onderdelenlijst. Exacte footprints, fabrikantnummers en eventuele ontbrekende PCB-componenten moeten nog worden geverifieerd aan de hand van het definitieve KiCad-schema.
