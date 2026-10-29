@@ -19,8 +19,8 @@
 |14|Keramische condensator|100 nF, opschrift 104|Nieuw|€ 1,00|2|€ 2,00|
 |15|Elco|470 µF / 16 V|Nieuw|€ 1,50|1|€ 1,50|
 |16|Hoofdschakelaar|Robot aan/uit|Nieuw|€ 2,50|1|€ 2,50|
-|17|Drukknop||Recup||1||
-|18|Signaallampen||Recup||||
+|17|Drukknop||Recup||2||
+|18|Signaallampen||Recup|2|||
 |19|Draden|Voor sensoren en besturing; per stuk|Recup||||
 |20|Bevestigingsmateriaal|Set schroeven, moeren en afstandsbussen|Recup||||
 |21|PCB-schroefconnector||Nieuw|€ 0,64|4|€ 2,56|
