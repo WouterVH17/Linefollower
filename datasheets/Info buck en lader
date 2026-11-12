@@ -1,0 +1,48 @@
+Voeding en DRV8833 van de lijnvolgrobot
+
+De robot gebruikt twee buckconverters. De **6 V-module** voedt de motorsturing. De **3,3 V-module** is de voeding voor de sensorarray volgens het eerdere materialenplan. De accu is een 2S-LiPo en wordt opgeladen met een USB-lader. De onderdelen hieronder zijn bijgewerkt op basis van de beschrijving van de bouwer.
+
+## USB-lader voor 2S-LiPo
+
+| Gegeven | Specificatie |
+| --- | --- |
+| Accu | 2S-LiPo, 7,4 V nominaal |
+| Eindspanning accu | 8,4 V totaal, 4,20 V per cel voor een standaard LiPo |
+| Opgegeven laadstroom | 1 A volgens de bouwer |
+| Voeding | Via USB. Controleer de vereiste ingangsspanning en -stroom op het label. |
+| Balansstekker | Voor 2S zijn er drie meetpunten: accumin, het knooppunt tussen beide cellen en accuplus. Het stekkertype en de fysieke pinvolgorde van deze lader zijn nog te bevestigen. |
+| Afmetingen | Lengte × breedte × hoogte nog te meten. |
+
+Een vergelijkbare URGENEX-lader heeft dezelfde nominale accu-aanduiding en laadstroom en gebruikt een XH-3P-stekker. Het merk en de stekker van de eigen lader zijn nog onbekend. [URGENEX 2S USB-lader](https://urgenexrc.com/products/urgenex-2s-7-4v-1a-usb-battery-charger-with-xh-3p-connector-2-packs) · [SkyRC e3, LiPo-eindspanning per cel](https://www.skyrc.com/e3_Charger)
+
+## Buckconverters
+
+| Gegeven | 6 V voor de motorsturing | 3,3 V voor de sensorarray |
+| --- | --- | --- |
+| Uitvoering | 2–6S LiPo step-downmodule | Step-downmodule met 3,3 V-uitgang |
+| Ingang | 2–6S LiPo volgens de bouwer. Dat komt overeen met 7,4–22,2 V nominaal en 8,4–25,2 V bij volledig geladen packs. | Toegelaten ingangsbereik en aansluiting op de robot nog te bevestigen. |
+| Uitgang | 6,0 V | 3,3 V |
+| Continue uitgangsstroom | 5 A opgegeven voor de module. De voorwaarden bij 6 V-uitgang en 2S-ingang zijn nog onbekend. | Nog onbekend |
+| Aansluitingen | Ingang plus/min en uitgang plus/min. Fysieke volgorde en opschriften nog te bevestigen. | Ingang plus/min en uitgang plus/min. Fysieke volgorde en opschriften nog te bevestigen. |
+| Afmetingen | Lengte × breedte × hoogte nog te meten. | Lengte × breedte × hoogte nog te meten. |
+
+Voor de 6 V-module is de opgave van de bouwer de bron. De exacte productversie kon nog niet worden vastgesteld. GetFPV vermeldt een vergelijkbare 2–6S UBEC met een 6 V-instelling en een opgegeven stroom van 5 A. [Lumenier UBEC-productspecificatie](https://www.getfpv.com/lumenier-ubec-5v-5-5v-6v-5a-2-6s-input.html)
+
+## DRV8833-module
+
+Texas Instruments specificeert **2,7–10,8 V** op VM. Bij 5 V en 25 °C vermeldt TI per H-brug **1,5 A RMS** voor de PWP- en RTY-chipbehuizingen en **0,5 A RMS** voor de PW-behuizing. De vermelde piekstroom is **2 A per brug**. De continue stroom van de eigen module hangt af van de print en warmteafvoer. [Texas Instruments DRV8833-datasheet, secties 1, 5 en 6](https://www.ti.com/lit/ds/symlink/drv8833.pdf)
+
+| Pinlabel volgens de H-brugproef | Aansluiting of functie |
+| --- | --- |
+| AIN1 | ESP32-S3 GPIO15 |
+| AIN2 | ESP32-S3 GPIO16 |
+| BIN1 | ESP32-S3 GPIO17 |
+| BIN2 | ESP32-S3 GPIO18 |
+| AOUT1, AOUT2 | Twee draden van de linkermotor |
+| BOUT1, BOUT2 | Twee draden van de rechtermotor |
+| VM | Plus van de 6 V-motorvoeding |
+| GND | Min van de motorvoeding en GND van de ESP32-S3 |
+| nSLEEP of SLP, indien uitgevoerd | Actief laag. Controleer op de module hoe deze ingang hoog wordt gehouden. |
+| nFAULT of FLT, indien uitgevoerd | Actief lage foutuitgang met open drain. In het project ongebruikt. |
+
+De eigen DRV8833-module heeft een zwarte print. De tabel geeft de signaalnamen en projectbedrading. Voor de **fysieke pinvolgorde en printafmetingen** zijn de printcode, een duidelijke bovenaanzichtfoto of de productlink nodig. Een fabrikanttekening voor de Pololu #2130 laat zien hoe pinposities en afmetingen voor één specifieke uitvoering worden vastgelegd. [Pololu #2130 maattekening](https://www.pololu.com/file/0J1615/drv8833-dual-motor-driver-carrier-dimensions.pdf)
